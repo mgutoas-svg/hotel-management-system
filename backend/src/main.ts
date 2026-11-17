@@ -29,8 +29,10 @@ async function bootstrap() {
   // API Prefix
   app.setGlobalPrefix(process.env.API_PREFIX || 'api/v1');
 
-  // Health check endpoint
-  app.get('/health', () => ({ status: 'ok', timestamp: new Date() }));
+  // Health check via HTTP server
+  app.getHttpServer().get('/health', (req, res) => {
+    res.json({ status: 'ok', timestamp: new Date() });
+  });
 
   const port = process.env.PORT || 3001;
   await app.listen(port);

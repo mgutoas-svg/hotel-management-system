@@ -60,12 +60,12 @@ export class AuthService {
 
     const accessToken = this.jwtService.sign(
       { sub: user.id, email: user.email, role: user.role },
-      { expiresIn: process.env.JWT_EXPIRATION || '900s' },
+      { expiresIn: parseInt(process.env.JWT_EXPIRATION || '900') },
     );
 
     const refreshToken = this.jwtService.sign(
       { sub: user.id },
-      { secret: process.env.JWT_REFRESH_SECRET, expiresIn: '7d' },
+      { secret: process.env.JWT_REFRESH_SECRET, expiresIn: 604800 },
     );
 
     return {

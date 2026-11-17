@@ -4,56 +4,56 @@ import { Property } from '../../properties/entities/property.entity';
 @Entity('reservations')
 export class Reservation {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id!: string;
 
   @Column({ type: 'uuid' })
-  propertyId: string;
+  propertyId!: string;
 
   @ManyToOne(() => Property)
-  property: Property;
+  property!: Property;
 
   @Column({ type: 'varchar' })
-  guestName: string;
+  guestName!: string;
 
   @Column({ type: 'varchar' })
-  guestEmail: string;
+  guestEmail!: string;
 
   @Column({ type: 'varchar' })
-  guestPhone: string;
+  guestPhone!: string;
 
   @Column({ type: 'date' })
-  checkInDate: Date;
+  checkInDate!: Date;
 
   @Column({ type: 'date' })
-  checkOutDate: Date;
+  checkOutDate!: Date;
 
   @Column({ type: 'integer' })
-  numberOfGuests: number;
+  numberOfGuests!: number;
 
   @Column({ type: 'integer' })
-  numberOfRooms: number;
+  numberOfRooms!: number;
 
   @Column({ type: 'decimal', precision: 10, scale: 2 })
-  totalPrice: number;
+  totalPrice!: number;
 
   @Column({ type: 'varchar' })
   currency: string = 'BRL';
 
   @Column({ type: 'enum', enum: ['pending', 'confirmed', 'cancelled', 'completed'], default: 'pending' })
-  status: string;
+  status!: string;
 
   @Column({ type: 'varchar', nullable: true })
   bookingSource: string; // 'booking', 'airbnb', 'direct', etc
 
   @Column({ type: 'varchar', nullable: true })
-  externalBookingId: string;
+  externalBookingId!: string;
 
   @Column({ type: 'text', nullable: true })
-  notes: string;
+  notes!: string;
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt!: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt!: Date;
 }

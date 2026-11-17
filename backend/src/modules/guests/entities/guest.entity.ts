@@ -3,32 +3,32 @@ import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateCol
 @Entity('guests')
 export class Guest {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id!: string;
 
   @Column({ type: 'varchar' })
-  firstName: string;
+  firstName!: string;
 
   @Column({ type: 'varchar' })
-  lastName: string;
+  lastName!: string;
 
   @Column({ type: 'varchar', unique: true })
-  email: string;
+  email!: string;
 
   @Column({ type: 'varchar' })
-  phone: string;
+  phone!: string;
 
   @Column({ type: 'varchar', nullable: true })
-  country: string;
+  country!: string;
 
   @Column({ type: 'integer', default: 0 })
-  totalReservations: number;
+  totalReservations!: number;
 
   @Column({ type: 'decimal', precision: 10, scale: 2, default: 0 })
-  totalSpent: number;
+  totalSpent!: number;
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt!: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt!: Date;
 }

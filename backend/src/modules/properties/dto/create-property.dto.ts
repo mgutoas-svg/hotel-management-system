@@ -3,46 +3,46 @@ import { IsNotEmpty, IsNumber, IsString, IsArray, IsOptional, Min, Max } from 'c
 export class CreatePropertyDto {
   @IsNotEmpty()
   @IsString()
-  name: string;
+  name!: string;
 
   @IsNotEmpty()
   @IsString()
-  description: string;
+  description!: string;
 
   @IsNotEmpty()
   @IsString()
-  address: string;
+  address!: string;
 
   @IsNotEmpty()
   @IsString()
-  city: string;
+  city!: string;
 
   @IsNotEmpty()
   @IsString()
-  state: string;
+  state!: string;
 
   @IsNotEmpty()
   @IsString()
-  country: string;
+  country!: string;
 
   @IsNotEmpty()
   @IsString()
-  zipCode: string;
+  zipCode!: string;
 
   @IsNumber()
-  latitude: number;
+  latitude!: number;
 
   @IsNumber()
-  longitude: number;
+  longitude!: number;
 
   @IsNotEmpty()
   @IsNumber()
   @Min(1)
-  totalRooms: number;
+  totalRooms!: number;
 
   @IsNotEmpty()
   @IsString()
-  propertyType: string;
+  propertyType!: string;
 
   @IsNumber()
   @Min(1)

@@ -3,17 +3,17 @@ import { IsEmail, IsNotEmpty, MinLength, IsEnum } from 'class-validator';
 export class RegisterDto {
   @IsEmail()
   @IsNotEmpty()
-  email: string;
+  email!: string;
 
   @IsNotEmpty()
   @MinLength(8)
-  password: string;
+  password!: string;
 
   @IsNotEmpty()
-  firstName: string;
+  firstName!: string;
 
   @IsNotEmpty()
-  lastName: string;
+  lastName!: string;
 
   @IsEnum(['admin', 'manager', 'staff', 'guest'])
   role: string = 'guest';

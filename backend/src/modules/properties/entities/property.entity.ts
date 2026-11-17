@@ -4,37 +4,37 @@ import { User } from '../../auth/entities/user.entity';
 @Entity('properties')
 export class Property {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id!: string;
 
   @Column({ type: 'varchar' })
-  name: string;
+  name!: string;
 
   @Column({ type: 'text' })
-  description: string;
+  description!: string;
 
   @Column({ type: 'varchar' })
-  address: string;
+  address!: string;
 
   @Column({ type: 'varchar' })
-  city: string;
+  city!: string;
 
   @Column({ type: 'varchar' })
-  state: string;
+  state!: string;
 
   @Column({ type: 'varchar' })
-  country: string;
+  country!: string;
 
   @Column({ type: 'varchar' })
-  zipCode: string;
+  zipCode!: string;
 
   @Column({ type: 'decimal', precision: 10, scale: 2 })
-  latitude: number;
+  latitude!: number;
 
   @Column({ type: 'decimal', precision: 10, scale: 2 })
-  longitude: number;
+  longitude!: number;
 
   @Column({ type: 'integer' })
-  totalRooms: number;
+  totalRooms!: number;
 
   @Column({ type: 'varchar' })
   propertyType: string; // hotel, hostel, apartament, etc
@@ -43,26 +43,26 @@ export class Property {
   stars: number; // 1-5
 
   @Column({ type: 'varchar', array: true, default: [] })
-  amenities: string[];
+  amenities!: string[];
 
   @Column({ type: 'decimal', precision: 10, scale: 2 })
   checkInTime: number; // hora em formato decimal (14.5 = 14:30)
 
   @Column({ type: 'decimal', precision: 10, scale: 2 })
-  checkOutTime: number;
+  checkOutTime!: number;
 
   @Column({ type: 'boolean', default: true })
-  isActive: boolean;
+  isActive!: boolean;
 
   @ManyToOne(() => User)
-  owner: User;
+  owner!: User;
 
   @Column({ type: 'uuid' })
-  ownerId: string;
+  ownerId!: string;
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt!: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt!: Date;
 }

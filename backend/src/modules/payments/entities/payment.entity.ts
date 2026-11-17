@@ -4,16 +4,16 @@ import { Reservation } from '../../reservations/entities/reservation.entity';
 @Entity('payments')
 export class Payment {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id!: string;
 
   @Column({ type: 'uuid' })
-  reservationId: string;
+  reservationId!: string;
 
   @ManyToOne(() => Reservation)
-  reservation: Reservation;
+  reservation!: Reservation;
 
   @Column({ type: 'decimal', precision: 10, scale: 2 })
-  amount: number;
+  amount!: number;
 
   @Column({ type: 'varchar' })
   currency: string; // 'USD', 'BRL', 'EUR', etc
@@ -28,29 +28,29 @@ export class Payment {
   transactionId: string; // Stripe or PayPal ID
 
   @Column({ type: 'varchar', nullable: true })
-  stripePaymentIntentId: string;
+  stripePaymentIntentId!: string;
 
   @Column({ type: 'varchar', nullable: true })
-  paypalOrderId: string;
+  paypalOrderId!: string;
 
   @Column({ type: 'varchar', nullable: true })
-  invoiceNumber: string;
+  invoiceNumber!: string;
 
   @Column({ type: 'text', nullable: true })
   metadata: string; // JSON string
 
   @Column({ type: 'boolean', default: false })
-  isRefunded: boolean;
+  isRefunded!: boolean;
 
   @Column({ type: 'decimal', precision: 10, scale: 2, nullable: true })
-  refundedAmount: number;
+  refundedAmount!: number;
 
   @Column({ type: 'timestamp', nullable: true })
-  refundedAt: Date;
+  refundedAt!: Date;
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt!: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt!: Date;
 }

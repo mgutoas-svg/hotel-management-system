@@ -16,7 +16,7 @@ export class StripeService {
     private readonly invoiceRepository: Repository<Invoice>,
   ) {
     this.stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '', {
-      apiVersion: '2023-10-16',
+      apiVersion: '2024-10-28.acacia' as any,
     });
   }
 
@@ -25,13 +25,12 @@ export class StripeService {
       const paymentIntent = await this.stripe.paymentIntents.create({
         amount: Math.round(amount * 100),
         currency: currency.toLowerCase(),
-        payment_method_types: ['card'],
         metadata: {
           reservationId,
           guestEmail,
         },
         receipt_email: guestEmail,
-      });
+      } as any);
 
       // Salvar payment
       const payment = this.paymentRepository.create({
@@ -66,7 +65,7 @@ export class StripeService {
 
         if (payment) {
           payment.status = 'completed';
-          payment.transactionId = paymentIntent.charges.data[0]?.id;
+          payment.transactionId = (paymentIntent as any).charges?.data[0]?.id || paymentIntent.id;
           await this.paymentRepository.save(payment);
 
           // Gerar invoice

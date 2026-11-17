@@ -3,50 +3,50 @@ import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateCol
 @Entity('invoices')
 export class Invoice {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id!: string;
 
   @Column({ type: 'varchar', unique: true })
   invoiceNumber: string; // INV-2024-001
 
   @Column({ type: 'uuid' })
-  paymentId: string;
+  paymentId!: string;
 
   @Column({ type: 'varchar' })
-  guestEmail: string;
+  guestEmail!: string;
 
   @Column({ type: 'varchar' })
-  guestName: string;
+  guestName!: string;
 
   @Column({ type: 'decimal', precision: 10, scale: 2 })
-  subtotal: number;
+  subtotal!: number;
 
   @Column({ type: 'decimal', precision: 10, scale: 2 })
-  taxAmount: number;
+  taxAmount!: number;
 
   @Column({ type: 'decimal', precision: 5, scale: 2 })
-  taxRate: number;
+  taxRate!: number;
 
   @Column({ type: 'decimal', precision: 10, scale: 2 })
-  totalAmount: number;
+  totalAmount!: number;
 
   @Column({ type: 'varchar', array: true, default: [] })
-  lineItems: string[];
+  lineItems!: string[];
 
   @Column({ type: 'boolean', default: false })
-  isPaid: boolean;
+  isPaid!: boolean;
 
   @Column({ type: 'timestamp', nullable: true })
-  paidAt: Date;
+  paidAt!: Date;
 
   @Column({ type: 'boolean', default: false })
-  isSent: boolean;
+  isSent!: boolean;
 
   @Column({ type: 'timestamp', nullable: true })
-  sentAt: Date;
+  sentAt!: Date;
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt!: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt!: Date;
 }

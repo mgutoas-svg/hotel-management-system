@@ -4,41 +4,41 @@ import { Type } from 'class-transformer';
 export class CreateReservationDto {
   @IsNotEmpty()
   @IsString()
-  propertyId: string;
+  propertyId!: string;
 
   @IsNotEmpty()
   @IsString()
-  guestName: string;
+  guestName!: string;
 
   @IsNotEmpty()
   @IsEmail()
-  guestEmail: string;
+  guestEmail!: string;
 
   @IsNotEmpty()
   @IsString()
-  guestPhone: string;
+  guestPhone!: string;
 
   @IsNotEmpty()
   @Type(() => Date)
   @IsDate()
-  checkInDate: Date;
+  checkInDate!: Date;
 
   @IsNotEmpty()
   @Type(() => Date)
   @IsDate()
-  checkOutDate: Date;
+  checkOutDate!: Date;
 
   @IsNotEmpty()
   @IsNumber()
-  numberOfGuests: number;
+  numberOfGuests!: number;
 
   @IsNotEmpty()
   @IsNumber()
-  numberOfRooms: number;
+  numberOfRooms!: number;
 
   @IsNotEmpty()
   @IsNumber()
-  totalPrice: number;
+  totalPrice!: number;
 
   @IsOptional()
   @IsString()
