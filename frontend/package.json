@@ -1,6 +1,6 @@
 {
   "name": "hotel-management-frontend",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -23,7 +23,8 @@
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
     "axios": "^1.4.0",
-    "date-fns": "^2.30.0"
+    "date-fns": "^2.30.0",
+    "recharts": "^2.10.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.0",

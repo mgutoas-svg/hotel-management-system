@@ -1,7 +1,7 @@
 {
   "name": "hotel-management-backend",
-  "version": "0.1.0",
-  "description": "Backend para Hotel Management System",
+  "version": "0.2.0",
+  "description": "Backend para Hotel Management System com integrações de canais",
   "author": "Hotel Management Team",
   "license": "MIT",
   "scripts": {
@@ -17,9 +17,11 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "seed": "ts-node src/database/seed.ts"
   },
   "dependencies": {
+    "@nestjs/axios": "^1.0.0",
     "@nestjs/common": "^10.0.0",
     "@nestjs/config": "^3.0.0",
     "@nestjs/core": "^10.0.0",
@@ -37,12 +39,17 @@
     "bcrypt": "^5.1.0",
     "typeorm": "^0.3.0",
     "dotenv": "^16.0.0",
-    "helmet": "^7.0.0"
+    "helmet": "^7.0.0",
+    "nodemailer": "^6.9.0",
+    "axios": "^1.4.0",
+    "rxjs": "^7.8.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",
     "@nestjs/schematics": "^10.0.0",
     "@types/node": "^20.0.0",
+    "@types/bcrypt": "^5.0.0",
+    "@types/nodemailer": "^6.4.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "eslint": "^8.0.0",
