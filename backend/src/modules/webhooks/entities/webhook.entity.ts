@@ -3,26 +3,26 @@ import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateCol
 @Entity('webhooks')
 export class Webhook {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id!: string;
 
   @Column({ type: 'varchar' })
-  event: string;
+  event!: string;
 
   @Column({ type: 'varchar' })
-  url: string;
+  url!: string;
 
   @Column({ type: 'boolean', default: true })
-  isActive: boolean;
+  isActive: boolean = true;
 
   @Column({ type: 'integer', default: 0 })
-  deliveredCount: number;
+  deliveredCount: number = 0;
 
   @Column({ type: 'integer', default: 0 })
-  failedCount: number;
+  failedCount: number = 0;
 
   @CreateDateColumn()
-  createdAt: Date;
+  createdAt!: Date;
 
   @UpdateDateColumn()
-  updatedAt: Date;
+  updatedAt!: Date;
 }

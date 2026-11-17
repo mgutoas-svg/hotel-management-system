@@ -34,7 +34,8 @@ export class WebhookService {
     } catch (error) {
       webhook.failedCount += 1;
       await this.webhookRepository.save(webhook);
-      return { success: false, error: error.message };
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      return { success: false, error: errorMessage };
     }
   }
 
